@@ -27,7 +27,7 @@ type Mutation {
 type Subscription{
     count: Int!
     comment(postId:ID!): Comment!
-    post:Post!
+    post:PostSubscriptionPayLoad!
 }
 
 input iUpdateUser{
@@ -86,6 +86,11 @@ type Comment {
     text: String!
     author: User!
     post: Post!
-}`
+}
+type PostSubscriptionPayLoad{
+    mutation: String!
+    data: Post!   
+}
 
+`
 export { typeDefs as default }
